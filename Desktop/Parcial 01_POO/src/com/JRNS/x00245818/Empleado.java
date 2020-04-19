@@ -39,7 +39,6 @@ public abstract class Empleado {
     }
 
     public void removeDocumento(String nombredoc){
-        documentos.removeIf(obj ->)
-
+        documentos.removeIf(obj -> obj.getNombre().equalsIgnoreCase(nombredoc));
     }
 }
