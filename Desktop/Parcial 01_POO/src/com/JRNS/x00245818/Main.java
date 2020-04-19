@@ -16,6 +16,9 @@ public class Main {
 	String numDoc;
 	Scanner entrada = new Scanner(System.in);
 
+	//Objeto de tipo empresa
+	Empresa emp = new Empresa("INDUSTRIAS VICAL");
+
 	System.out.println("MENU PRINCIPAL\n" + menuPrincipal());
 	System.out.println("Introduzca la opcion a realizar");
 	opcionMenu = entrada.nextInt();
@@ -24,7 +27,7 @@ public class Main {
         case 0:
             break;
         case 1:
-            //"Opcion #1"
+
             break;
         case 2:
             System.out.println("Digite el documento del empleado que desea despedir: ");
