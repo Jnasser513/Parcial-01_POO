@@ -8,7 +8,6 @@ public final class CalculadoraImpuestos {
     private CalculadoraImpuestos(){}
 
     public static double calcularEmpleado(Empleado tipoEmpleado){
-        double sueldo = 0, restante = 0;
 
     }
 
