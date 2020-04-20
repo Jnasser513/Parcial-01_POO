@@ -72,6 +72,7 @@ public class Main {
                     case 0:
                         break;
                     case 1:
+                        //Imprime solo los empleados de tipo plaza fija
                         negocio.getPlanilla().forEach(obj -> {
                             if (obj instanceof PlazaFija) {
                                 JOptionPane.showMessageDialog(null, "Empleado: " + obj.getNombre() + "\n" +
@@ -82,6 +83,7 @@ public class Main {
                         });
                         break;
                     case 2:
+                        //Imprime solo los empleados de tipo servicio profesional
                         negocio.getPlanilla().forEach(obj -> {
                             if (obj instanceof ServicioProfesional) {
                                 JOptionPane.showMessageDialog(null, "Empleado: " + obj.getNombre() + "\n" +
@@ -93,14 +95,16 @@ public class Main {
                 }
                 break;
             case 4:
-                //"Opcion #4"
+                int nombreemp;
+                nombreemp = Integer.parseInt(JOptionPane.showInputDialog(null,"Ingrese el nombre del empleado que desea ver su sueldo"));
+                
+
                 break;
             case 5:
-                //"Opcion #5"
+                JOptionPane.showMessageDialog(null,CalculadoraImpuestos.mostrarTotales());
                 break;
         }
     }while(opcionMenu != 0);
 
     }
 }
-
