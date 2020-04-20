@@ -1,7 +1,6 @@
 package com.JRNS.x00245818;
 
 import javax.swing.*;
-import java.util.Scanner;
 
 public class Main {
     static String menuPrincipal() {
@@ -95,10 +94,28 @@ public class Main {
                 }
                 break;
             case 4:
-                int nombreemp;
-                nombreemp = Integer.parseInt(JOptionPane.showInputDialog(null,"Ingrese el nombre del empleado que desea ver su sueldo"));
-                
-
+                try {
+                    boolean existe = false;
+                    String nombreBuscar = JOptionPane.showInputDialog(null, "Ingrese el nombre del empleado : ");
+                    for (Empleado emp : negocio.getPlanilla()) {
+                        if (emp.getNombre().equals(nombreBuscar))
+                            existe = true;
+                    }
+                    if (existe) {
+                        negocio.getPlanilla().forEach(obj -> {
+                            if (obj.getNombre().equals(nombreBuscar)) {
+                                JOptionPane.showMessageDialog(null, "Sueldo del empleado " + obj.getNombre() + " : " + CalculadoraImpuestos.calcularEmpleado(obj));
+                            }
+                        });
+                    } else {
+                        throw new NotExistingEmployeeException("El empleado no se encuentra en la planilla");
+                    }
+                } catch (NotExistingEmployeeException ex) {
+                    JOptionPane.showMessageDialog(null,ex.getMessage());
+                }
+                catch (Exception ex) {
+                    JOptionPane.showMessageDialog(null, ex.getMessage());
+                }
                 break;
             case 5:
                 JOptionPane.showMessageDialog(null,CalculadoraImpuestos.mostrarTotales());
